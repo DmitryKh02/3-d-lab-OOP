@@ -1,4 +1,4 @@
-#include <string>
+#include <iostream>
 #include "Fraction.h"
 
 Fraction::Fraction(long long first, unsigned short second)
@@ -152,16 +152,12 @@ const unsigned short Fraction::getFraction()
 }
 
 
-std::string Fraction::ToString()
+std::ostream& operator<<(std::ostream& out, Fraction& const object)
 {
-	std::string result = std::to_string(whole) + "/";
+	out <<object.whole << "/" << object.fraction;
 
-	result += std::to_string(fraction);
-
-	return result;
+	return out;
 }
-
-
 
 long long HOD(long long a, long long b)
 {

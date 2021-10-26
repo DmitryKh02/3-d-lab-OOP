@@ -3,59 +3,47 @@
 #include <fstream>
 #include "Calculator.h"
 
-void Calculator::addition()
+Fraction Calculator::addition()
 {
-	Fraction AddResult;
-	AddResult = first + second;
-	std::cout << "\nFirst + second = ";
-	std::cout << AddResult.ToString();
+	return Fraction (first + second);
 }
 
-void Calculator::substraction()
+Fraction Calculator::substraction()
 {
-	Fraction SubResult(first - second);
-	std::cout << "\nFirst - second = ";
-	std::cout << SubResult.ToString();
+	return Fraction(first - second);
 }
 
-void Calculator::multiplication()
+Fraction Calculator::multiplication()
 {
-	Fraction MultResult;
-	MultResult = first * second;
-	std::cout << "\nFirst * second = ";
-	std::cout << MultResult.ToString();
+	return Fraction(first * second);
 }
 
-void Calculator::division()
+Fraction Calculator::division()
 {
-	Fraction MultResult;
-	MultResult = first / second;
-	std::cout << "\nFirst / second = ";
-	std::cout << MultResult.ToString();
+	return Fraction(first / second);
 }
 
 
-void Calculator::compare()
+int Calculator::compare()
 {
-	if (first == second) 
-		std::cout << "\nThey is equal!";
+	int result = -1;
+	if (first == second)
+		result = 0;
 	else
-	{
-	if (first > second)
-		std::cout << "\nThe First is more than the Second!";
-	else
-		std::cout << "\nThe Second is more than the First!";
-	}
+		if (first > second)
+			result = 1;
+
+	return result;
 }
 
 
 std::ostream& operator<< (std::ostream& out, Calculator& const object)
 {
 	out << "\n-----------------------First-----------------------\n";
-	out << object.first.ToString();
+	out << object.first;
 
 	out << "\n-----------------------Second-----------------------\n";
-	out << object.second.ToString();
+	out << object.second;
 
 	return out;
 }

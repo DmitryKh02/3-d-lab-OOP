@@ -11,6 +11,8 @@ int main()
 	Calculator Object;
 	std::cin >> Object;
 
+	Fraction Result;
+
 	int menuPointer = 0;
 	do
 	{
@@ -30,23 +32,35 @@ int main()
 		}break;
 		case 3://+
 		{
-			Object.addition();
+			Result = Object.addition();
+			std::cout << "First + Second = " << Result;
 		}break;
 		case 4://-
 		{
-			Object.substraction();
+			Result = Object.substraction();
+			std::cout << "First - Second = " << Result;
 		}break;
 		case 5://*
 		{
-			Object.multiplication();
+			Result = Object.multiplication();
+			std::cout << "First * Second = " << Result;
 		}break;
 		case 6://"/"
 		{
-			Object.division();
+			Result = Object.division();
+			std::cout << "First / Second = " << Result;
 		}break;
 		case 7://>,<,==
 		{
-			Object.compare();
+			int resultOfCompare = Object.compare();
+
+			if (resultOfCompare == 0)
+				std::cout << "\nThey is equal!";
+			else
+				if (resultOfCompare > 0)
+					std::cout << "\nThe First is more than the Second!";
+				else
+					std::cout << "\nThe Second is more than the First!";
 		}break;
 		}
 
@@ -66,5 +80,6 @@ void menu()
 	std::cout << "\n5)\"*\"";
 	std::cout << "\n6)\"/\"";
 	std::cout << "\n7)\">,<,=\"";
+	std::cout << "\n8)Out";
 	std::cout << "\n_________________________________________________";
 }

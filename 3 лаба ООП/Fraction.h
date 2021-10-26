@@ -28,7 +28,7 @@ public:
 	const long long getWhole();
 	const unsigned short getFraction();
 
-	std::string ToString();
+	friend std::ostream& operator<< (std::ostream& out, Fraction& const object);
 };
 
 long long HOD(long long a, long long b);
